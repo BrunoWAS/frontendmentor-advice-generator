@@ -1,0 +1,133 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+:root {
+    --LightCyan: hsl(193, 38%, 86%);
+    --NeonGreen: hsl(150, 100%, 66%);
+    --GrayishBlue: hsl(217, 19%, 38%);
+    --DarkGrayishBlue: hsl(217, 19%, 24%);
+    --DarkBlue: hsl(218, 23%, 16%);
+}
+
+body {
+    background-color: var(--DarkBlue);
+    font-family: "Manrope", sans-serif;
+    font-size: 2.8rem;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--LightCyan);
+    font-weight: 800;
+    margin: 0;
+}
+
+.card {
+    background-color: var(--DarkGrayishBlue);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
+    height: 31rem;
+    width: 51rem;
+    position: relative;
+    padding: 2rem;
+}
+
+.card__title {
+    color: var(--NeonGreen);
+    font-size: 1rem;
+    letter-spacing: 0.4rem;
+    text-transform: uppercase;
+    margin: 1rem 0;
+}
+
+.card__advice-text {
+    padding: 3rem 1rem;
+    text-align: center;
+    word-spacing: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card__divisor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.card__divisor-img {
+    content: url('../images/pattern-divider-desktop.svg');
+    width: 100%;
+    height: auto;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.card__dice {
+    padding: 1.5rem;
+    background-color: var(--NeonGreen);
+    border-radius: 3rem;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: -2.5rem;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.card__dice--loading {
+    animation: rotate 1s linear infinite;
+}
+
+.card__dice:hover {
+    background-color: var(--NeonGreen);
+    filter: brightness(1.2);
+    box-shadow: 0 0 20px var(--NeonGreen);
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 2rem;
+    }
+
+    .card {
+        width: 65%;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .card__title {
+        font-size: 0.9rem;
+        padding-top: 3rem;
+    }
+
+    .card__dice {
+        bottom: -1.5rem;
+    }
+
+    .card__divisor-img {
+        content: url('../images/pattern-divider-mobile.svg'); 
+        padding-bottom: 4rem;
+        animation: fadeIn 2s ease-in-out;
+    }
+}
